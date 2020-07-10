@@ -1,4 +1,4 @@
-import LokiDatasource, { RangeQueryOptions } from './datasource';
+import LokiDatasource from './datasource';
 import { LokiQuery, LokiResponse, LokiResultType } from './types';
 import { getQueryOptions } from 'test/helpers/getQueryOptions';
 import {
@@ -73,7 +73,7 @@ describe('LokiDatasource', () => {
         range,
       };
 
-      const req = ds.createRangeQuery(target, options);
+      const req = ds.createRangeQuery(target, options as any);
       expect(req.start).toBeDefined();
       expect(req.end).toBeDefined();
       expect(adjustIntervalSpy).toHaveBeenCalledWith(1000, expect.anything());
@@ -88,7 +88,7 @@ describe('LokiDatasource', () => {
         intervalMs: 2000,
       };
 
-      const req = ds.createRangeQuery(target, options);
+      const req = ds.createRangeQuery(target, options as any);
       expect(req.start).toBeDefined();
       expect(req.end).toBeDefined();
       expect(adjustIntervalSpy).toHaveBeenCalledWith(2000, expect.anything());
@@ -365,8 +365,8 @@ describe('LokiDatasource', () => {
         raw: { from: '0', to: '1000000001' },
       };
       // Odd timerange/interval combination that would lead to a float step
-      const options: RangeQueryOptions = { range, intervalMs: 2000 };
-      expect(Number.isInteger(ds.createRangeQuery(query, options).step!)).toBeTruthy();
+      const options = { range, intervalMs: 2000 };
+      expect(Number.isInteger(ds.createRangeQuery(query, options as any).step!)).toBeTruthy();
     });
   });
 

@@ -17,42 +17,19 @@ type Props = ConnectedProps;
 
 export class ErrorPage extends PureComponent<Props> {
   render() {
-    const { navModel } = this.props;
+    let test: any;
     return (
-      <Page navModel={navModel}>
+      <Page navModel={test}>
         <Page.Contents>
           <div className="page-container page-body">
             <div className="panel-container error-container">
               <div className="error-column graph-box">
-                <div className="error-row">
-                  <div className="error-column error-space-between graph-percentage">
-                    <p>100%</p>
-                    <p>80%</p>
-                    <p>60%</p>
-                    <p>40%</p>
-                    <p>20%</p>
-                    <p>0%</p>
-                  </div>
-                  <div className="error-column image-box">
-                    <img src="public/img/graph404.svg" width="100%" alt="graph" />
-                    <div className="error-row error-space-between">
-                      <p className="graph-text">Then</p>
-                      <p className="graph-text">Now</p>
-                    </div>
-                  </div>
-                </div>
+                <img src="https://media.giphy.com/media/14uQ3cOFteDaU/source.gif" />
               </div>
               <div className="error-column info-box">
-                <div className="error-row current-box">
-                  <p className="current-text">current</p>
-                </div>
                 <div className="error-row" style={{ flex: 1 }}>
                   <Icon name="minus-circle" className="error-minus" />
                   <div className="error-column error-space-between error-full-width">
-                    <div className="error-row error-space-between">
-                      <p>Chances you are on the page you are looking for.</p>
-                      <p className="left-margin">0%</p>
-                    </div>
                     <div>
                       <h3>Sorry for the inconvenience</h3>
                       <p>
